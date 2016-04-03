@@ -25,7 +25,6 @@ import android.widget.ViewAnimator;
 
 import com.example.android.common.activities.SampleActivityBase;
 import com.example.android.common.logger.Log;
-import com.example.android.common.logger.LogFragment;
 import com.example.android.common.logger.LogWrapper;
 import com.example.android.common.logger.MessageOnlyLogFilter;
 
@@ -76,12 +75,12 @@ public class MainActivity extends SampleActivityBase {
         switch(item.getItemId()) {
             case R.id.menu_toggle_log:
                 mLogShown = !mLogShown;
-                ViewAnimator output = (ViewAnimator) findViewById(R.id.sample_output);
-                if (mLogShown) {
-                    output.setDisplayedChild(1);
-                } else {
-                    output.setDisplayedChild(0);
-                }
+//                ViewAnimator output = (ViewAnimator) findViewById(R.id.sample_output);
+//                if (mLogShown) {
+//                    output.setDisplayedChild(1);
+//                } else {
+//                    output.setDisplayedChild(0);
+//                }
                 supportInvalidateOptionsMenu();
                 return true;
         }
@@ -101,9 +100,6 @@ public class MainActivity extends SampleActivityBase {
         logWrapper.setNext(msgFilter);
 
         // On screen logging via a fragment with a TextView.
-        LogFragment logFragment = (LogFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.log_fragment);
-        msgFilter.setNext(logFragment.getLogView());
 
         Log.i(TAG, "Ready");
     }
